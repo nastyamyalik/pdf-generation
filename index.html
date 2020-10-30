@@ -1,210 +1,368 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <title>Shower Presentation Engine</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="node_modules/@shower/ribbon/styles/styles.css">
+    <link rel="stylesheet" href="node_modules/@shower/material/styles/styles.css">
     <style>
         .shower {
             --slide-ratio: calc(16 / 9);
+            color: #3c3c3c;
+        }
+
+        .slide::after {
+            bottom: 30px;
+        }
+
+        .slide.downloads-slide {
+            display: flex;
+            justify-content: center;
+        }
+
+        .downloads-img {
+            height: 80%;
+        }
+
+        .slide.lib-description {
+            padding: 45px 95px 20px;
+        }
+
+        .slide.lib-description .title {
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .slide.lib-description .description {
+            font-size: 18px;
+            line-height: 1.8;
+        }
+
+        .description.row {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+        }
+
+        .description .common {
+            display: flex;
+            align-items: center;
+        }
+
+        .common img {
+            height: 100px;
+            margin-right: 40px;
+            margin-bottom: 15px;
+        }
+
+        ul {
+            margin-left: 40px;
+        }
+
+        ul li {
+            margin: 10px 0;
+        }
+
+        .annotation {
+            font-size: 14px;
+            font-style: italic;
+            line-height: 1.5;
+        }
+
+        .description .img-wrapper {
+            display: flex;
+            justify-content: center;
+        }
+
+        .description .img-wrapper.full-width img {
+            width: 100%;
+        }
+
+        .description .img-wrapper img {
+            width: 60%;
+        }
+
+        .description .img-wrapper-row {
+            display: flex;
+            align-items: center;
+        }
+
+        .description .img-wrapper-row img {
+            width: 50%;
+        }
+
+        .description.row code {
+            display: block;
+            white-space: pre-wrap;
+            font-size: 12px;
+            padding: 0 20px;
+        }
+
+        .description.row img {
+            width: 39%;
+        }
+
+        .description ul.list li {
+            margin: 0;
+        }
+
+        .sticker1 {
+            position: absolute;
+            bottom: 0;
+            width: 200px;
+            right: 40px;
+        }
+
+        .sticker2 {
+            position: absolute;
+            bottom: 0;
+            width: 200px;
+            right: 0;
+        }
+
+        .sticker6 {
+            position: absolute;
+            right: 0;
+            width: 180px;
+            bottom: 0;
         }
     </style>
 </head>
+
 <body class="shower list">
 
     <header class="caption">
-        <h1>Shower Presentation Engine</h1>
-        <p>Yours Truly, Famous Inc.</p>
+        <h1>Generating PDF in JS</h1>
+        <p>Comparison of several libraries: Puppeteer, Pdfkit, PDFMake, jsPDF, Html2pdf</p>
     </header>
 
-    <section class="slide" id="cover">
-        <h2>Shower Presentation Engine</h2>
-        <p>Brought to you by <a href="https://pepelsbey.net">Vadim Makeev</a></p>
-        <figure>
-            <img class="cover" src="pictures/cover.jpg" alt="Hands on the orange typewriter in a park">
-            <figcaption class="copyright right white">
-                <a href="https://fiftyfootshadows.net">© John Carey</a>
-            </figcaption>
-        </figure>
-        <style>
-            #cover h2 {
-                margin: 30px 0 0;
-                color: white;
-                text-align: center;
-                font-size: 70px;
-            }
+    <section class="slide">
+        <p class="header">Наиболее популярные JS библиотеки для генерации PDF</p>
 
-            #cover p {
-                margin: 10px 0 0;
-                text-align: center;
-                color: white;
-                font-style: italic;
-                font-size: 20px;
-            }
-
-            #cover p a {
-                color: white;
-            }
-        </style>
+        <ul>
+            <li>
+                <a href="https://github.com/puppeteer/puppeteer">Puppeteer</a>
+            </li>
+            <li>
+                <a href="https://github.com/foliojs/pdfkit">Pdfkit</a>
+            </li>
+            <li>
+                <a href="https://github.com/bpampuch/pdfmake">Pdfmake</a>
+            </li>
+            <li>
+                <a href="https://github.com/MrRio/jsPDF">jsPDF</a>
+            </li>
+            <li>
+                <a href="https://github.com/eKoopmans/html2pdf.js">Html2pdf</a>
+            </li>
+        </ul>
+        <img class="sticker1" src="pictures/sticker.png" />
     </section>
 
-    <section class="slide">
-        <h2>Shower key features</h2>
-        <ol>
-            <li>Built on HTML, CSS and JavaScript</li>
-            <li>Works in all modern browsers</li>
-            <li>Themes are separated from engine</li>
-            <li>Fully keyboard accessible</li>
-            <li>Printable to PDF</li>
-        </ol>
-        <p class="note">Shower ['ʃəuə] noun. A person or thing that shows.</p>
+    <section class="slide downloads-slide">
+        <img class="downloads-img" src="/pictures/downloads.png" />
+        <img class="sticker2" src="pictures/sticker3.png">
     </section>
 
-    <section class="slide">
-        <h2>Plain text on your slides</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur <a href="#4">adipisicing</a> elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, <em>quis nostrud</em> exercitation ullamco laboris <strong>nisi ut aliquip</strong> ex ea commodo consequat. Duis aute irure <i>dolor</i> in reprehenderit in voluptate velit esse cillum <b>dolore</b> eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in <code>&lt;culpa&gt;</code> qui officia deserunt mollit anim id est laborum.</p>
-    </section>
+    <section class="slide lib-description">
+        <div class="title">
+            Puppeteer
+        </div>
+        <div class="description">
+            <div class="common">
+                <img class="lib-icon" src="pictures/puppeteer.png">
+                <p>
+                    - библиотека Nodejs, которая предоставляет высокоуровневый API для управления
+                    headless-Chrome или
+                    Chromium через протокол DevTools.
+                    Его также можно настроить для использования полного (non-headless) Chrome или Chromium.
+                </p>
+            </div>
 
-    <section class="slide">
-        <h2>Two columns if you like</h2>
-        <div class="columns two">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
-            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia.</p>
+            <ul>
+                <li>
+                    создает PDF-файл с текстовым содержимым, а не просто использует изображение
+                </li>
+                <li>
+                    возможность выбирать и копировать текст из PDF-файла
+                </li>
+                <li>
+                    не нужно беспокоиться о разрешении, поскольку оно всегда будет четким
+                </li>
+                <li>
+                    не нужно беспокоиться о кросс-браузерной совместимости
+                </li>
+            </ul>
+
+            <p>
+                Спойлер: размер файла значительно меньше, по сравнению с html2pdf. Результирующий PDF-файл Puppeteer
+                примерно в четыре раза меньше.
+            </p>
         </div>
     </section>
 
-    <section class="slide">
-        <h2>All kind of lists</h2>
-        <ol>
-            <li>Simple lists are marked with bullets</li>
-            <li>Ordered lists begin with a number</li>
-            <li>You can even nest lists one inside another
-                <ul>
-                    <li>Or mix their types</li>
-                    <li>But do not go too far</li>
-                    <li>Otherwise audience will be bored</li>
-                </ul>
-            </li>
-            <li>Look, seven rows exactly!</li>
-        </ol>
+    <section class="slide lib-description">
+        <div class="title">
+            PDFMake
+        </div>
+        <div class="description">
+            <p>
+                PDFMake - библиотека для создания PDF-документов для серверного и клиентского использования.
+            </p>
+
+            <p>Список фич, которые доступны в данной библиотеке: </p>
+
+            <div class="img-wrapper">
+                <img src="/pictures/pdfmake.png" />
+            </div>
+        </div>
     </section>
 
-    <section class="slide">
-        <h2>Serious citations</h2>
-        <figure>
-            <blockquote>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia.</p>
-            </blockquote>
-            <figcaption>Marcus Tullius Cicero</figcaption>
-        </figure>
-    </section>
-
-    <section class="slide">
-        <h2>Code samples</h2>
-        <pre>
-            <code>&lt;!DOCTYPE html&gt;</code>
-            <code class="mark">&lt;html lang="en"&gt;</code>
-            <code><mark>&lt;head&gt;</mark> <span class="comment">&lt;!--Comment--&gt;</span></code>
-            <code>    &lt;title&gt;Shower&lt;/title&gt;</code>
-            <code>    &lt;meta charset="<mark class="important">UTF-8</mark>"&gt;</code>
-            <code>    &lt;link rel="stylesheet" href="screen.css"&gt;</code>
-            <code><mark>&lt;/head&gt;</mark></code>
-        </pre>
-    </section>
-
-    <section class="slide">
-        <h2>Even tables</h2>
-        <table>
-        <tr>
-            <th scope="col">Locavore</th>
-            <th>Umami</th>
-            <th>Helvetica</th>
-            <th>Vegan</th>
-        </tr>
-        <tr>
-            <th scope="row">Fingerstache</th>
-            <td>Kale</td>
-            <td>Chips</td>
-            <td>Keytar</td>
-        </tr>
-        <tr>
-            <th scope="row">Sriracha</th>
-            <td>Gluten-free</td>
-            <td>Ennui</td>
-            <td>Keffiyeh</td>
-        </tr>
-        <tr>
-            <th scope="row">Thundercats</th>
-            <td>Jean</td>
-            <td>Shorts</td>
-            <td>Biodiesel</td>
-        </tr>
-        <tr>
-            <th scope="row">Terry</th>
-            <td>Richardson</td>
-            <td>Swag</td>
-            <td>Blog</td>
-        </tr>
-        </table>
-        <p>It’s good to have information organized.</p>
-    </section>
-
-    <section class="slide" id="picture">
-        <h2>Pictures</h2>
-        <figure>
-            <img class="cover" src="pictures/picture.jpg" alt="Orange typewriter on a wooden table close-up">
-            <figcaption class="copyright right white">
-                <a href="https://fiftyfootshadows.net">© John Carey</a>
-            </figcaption>
-        </figure>
-        <style>
-            #picture h2 {
-                color: white;
+    <section class="slide lib-description">
+        <div class="description row">
+            <code>
+var dd = {
+    content: [
+        {text: 'Unordered list', style: 'header'},
+        {
+            ul: [
+                'item 1',
+                'item 2',
+                'item 3'
+            ]
+        },
+        {
+            image: 'data:image/jpeg;base64,....',
+            width: 200,
+            opacity: 0.5
+        },
+        {
+            style: 'tableExample',
+            table: {
+                body: [
+                    ['Column 1', 'Column 2', 'Column 3'],
+                    ['One value', 'Another one', 'OK?']
+                ]
             }
-        </style>
+        },
+    ],
+    styles: {
+        header: {
+            bold: true,
+            fontSize: 15
+        },
+        tableExample: {
+            margin: [0, 5, 0, 15]
+        },
+    },
+    defaultStyle: {
+        fontSize: 12
+    }
+}
+            </code>
+            <img src="/pictures/pdfmake-2.png" />
+        </div>
     </section>
 
-    <section class="slide">
-        <h2 class="shout shrink">You can even shout this way</h2>
+    <section class="slide downloads-slide">
+        <embed style="border:none;" src="/pictures/pdf-example.pdf#toolbar=0" width="75%" height="85%"
+            type="application/pdf">
+        <img class="sticker6" src="pictures/sticker6.png" />
     </section>
 
-    <section class="slide">
-        <h2>Inner navigation</h2>
-        <ol>
-            <li>Lets you reveal list items one by one</li>
-            <li class="next">To keep some key points</li>
-            <li class="next">In secret from audience</li>
-            <li class="next">But it will work only once</li>
-            <li class="next">Nobody wants to see the same joke twice</li>
-        </ol>
+    <section class="slide lib-description">
+        <div class="title">
+            <a href="https://github.com/Aymkdn/html-to-pdfmake">html-to-pdfmake</a>
+        </div>
+        <div class="description">
+            PDFMake позволяет легко создавать PDF-файлы с помощью js, однако в нем нет поддержки html, но в
+            html-to-pdfmake такая возможность есть. Этот модуль преобразует некоторый базовый и действительный html-код
+            в его эквивалент в PDFMake.
+
+            <p class="header">Поддерживаются следующие html-теги:</p>
+            <ul class="list">
+                <li>DIV / P / SPAN</li>
+                <li>BR</li>
+                <li>B / I</li>
+                <li>UL / OL / LI</li>
+                <li>TABLE / THEAD / TBODY / TFOOTER / TR / TH / TD</li>
+                <li>H1 to H6</li>
+                <li>IMG</li>
+                <li>SVG</li>
+            </ul>
+        </div>
     </section>
 
-    <section class="slide" id="see-more">
-        <h2 class="shout">
-            <img src="pictures/logo.svg" alt="Shower logo">
-            <a href="https://github.com/shower/shower">See more on GitHub</a>
-        </h2>
-        <style>
-            #see-more h2 {
-                font-size: 100px
-            }
-
-            #see-more img {
-                width: 0.72em;
-                height: 0.72em;
-            }
-        </style>
+    <section class="slide lib-description">
+        <div class="description">
+            <p>Пример таблицы, сделонной с помощью html-to-pdfmake</p>
+            <div class="img-wrapper full-width">
+                <img src="/pictures/table-example.png" />
+            </div>
+        </div>
     </section>
 
-    <footer class="badge">
-        <a href="https://github.com/shower/shower">Fork me on GitHub</a>
-    </footer>
+    <section class="slide lib-description">
+        <div class="title">
+            Html2pdf
+        </div>
+        <div class="description">
+            <p>
+                Преобразует любую веб-страницу или элемент в PDF-файл полностью на стороне клиента, используя
+                html2canvas и jsPDF.
+            </p>
+            <ul>
+                <li>
+                    Делает снимок экрана и создает из него PDF-файл, что означает, что текст будет выглядеть размытым
+                    при увеличении масштаба.
+                    Вы можете настроить html2pdf для использования PNG вместо JPEG, но это приведет к резкому увеличению
+                    размера PDF.
+                </li>
+                <li>
+                    Текст недоступен для выбора или поиска.
+                </li>
+                <li>
+                    HTML5 Canvas имеет максимальную высоту / ширину. Все, что больше, не будет отображаться.
+                    Это ограничение самого HTML5, и в результате большие PDF-файлы отображаются полностью пустыми в
+                    html2pdf.js. <br>
+
+                </li>
+                <div class="annotation">
+                    Maximum height/width: 32,767 pixels<br>
+                    Maximum area: 268,435,456 pixels (e.g., 16,384 x 16,384)
+                </div>
+            </ul>
+        </div>
+    </section>
+
+    <section class="slide lib-description">
+        <div class="title">
+            jsPDF и PDFkit
+        </div>
+        <div class="description">
+            <p>
+                Autolayout-а в jsPDF и PDFkit нет — нужно самостоятельно расставлять элементы по координатам (как в
+                Canvas API), "руками" создавать страницы и т.д.
+            </p>
+
+            <div>
+                <a href="https://github.com/simonbengtsson/jsPDF-AutoTable">jsPDF-AutoTable</a>
+                <div <div class="img-wrapper-row">
+                    <img class="lib-icon" src="pictures/jspdf-table_1.png" />
+                    <img class="lib-icon" src="pictures/jspdf-table_2.png" />
+                </div>
+
+            </div>
+        </div>
+    </section>
 
     <div class="progress"></div>
 
     <script src="node_modules/@shower/core/dist/shower.js"></script>
-    <!-- Copyright © 3000 Yours Truly, Famous Inc. -->
+    <!-- Copyright © 2020 Yours Truly, Famous Inc. -->
 
 </body>
+
 </html>
