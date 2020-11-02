@@ -22,11 +22,11 @@
         }
 
         .downloads-img {
-            height: 80%;
+            height: 85%;
         }
 
         .slide.lib-description {
-            padding: 45px 95px 20px;
+            padding: 55px 95px 20px;
         }
 
         .slide.lib-description .title {
@@ -100,6 +100,18 @@
             padding: 0 20px;
         }
 
+        .description .compare-code {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .description .compare-code code {
+            display: block;
+            white-space: pre-wrap;
+            font-size: 9px;
+            padding: 0 20px;
+        }
+
         .description.row img {
             width: 39%;
         }
@@ -111,8 +123,8 @@
         .sticker1 {
             position: absolute;
             bottom: 0;
-            width: 200px;
-            right: 40px;
+            width: 260px;
+            right: 0;
         }
 
         .sticker2 {
@@ -123,6 +135,13 @@
         }
 
         .sticker6 {
+            position: absolute;
+            width: 135px;
+            left: 20%;
+            bottom: 35px;
+        }
+
+        .sticker11 {
             position: absolute;
             right: 0;
             width: 180px;
@@ -143,9 +162,6 @@
 
         <ul>
             <li>
-                <a href="https://github.com/puppeteer/puppeteer">Puppeteer</a>
-            </li>
-            <li>
                 <a href="https://github.com/foliojs/pdfkit">Pdfkit</a>
             </li>
             <li>
@@ -157,8 +173,11 @@
             <li>
                 <a href="https://github.com/eKoopmans/html2pdf.js">Html2pdf</a>
             </li>
+            <li>
+                <a href="https://github.com/puppeteer/puppeteer">Puppeteer</a>
+            </li>
         </ul>
-        <img class="sticker1" src="pictures/sticker.png" />
+        <img class="sticker1" src="pictures/sticker1.png" />
     </section>
 
     <section class="slide downloads-slide">
@@ -175,12 +194,43 @@
                 <img class="lib-icon" src="pictures/puppeteer.png">
                 <p>
                     - библиотека Nodejs, которая предоставляет высокоуровневый API для управления
-                    headless-Chrome или
-                    Chromium через протокол DevTools.
+                    headless-Chrome или Chromium через протокол DevTools.
                     Его также можно настроить для использования полного (non-headless) Chrome или Chromium.
                 </p>
             </div>
 
+            <p>
+                Большинство вещей, которые вы можете делать вручную в браузере, можно сделать с помощью Puppeteer.
+                Например:
+            </p>
+
+            <ul>
+                <li>
+                    автоматизация сбора данных с веб-сайтов
+                </li>
+                <li>
+                    автоматизация тестирования веб-интерфейсов.
+                </li>
+                <li>
+                    тестирование расширений Chrome
+                </li>
+                <li>
+                    создание скриншотов и PDF-файлов.
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="slide lib-description">
+        <div class="description">
+
+            <p>
+                <b>page.pdf()</b> - генерирует из html разметки pdf документ. <br />
+                И по умолчанию он генерирует pdf для печати <b>(print css media)</b><br />
+                Чтобы использовать (screen media), необходимо вызвать <b>page.emulateMedia(‘screen’)</b> перед
+                page.pdf().
+            </p>
+            <br />
             <ul>
                 <li>
                     создает PDF-файл с текстовым содержимым, а не просто использует изображение
@@ -195,13 +245,152 @@
                     не нужно беспокоиться о кросс-браузерной совместимости
                 </li>
             </ul>
+        </div>
+    </section>
 
+    <section class="slide lib-description">
+        <div class="title">
+            Html2pdf
+        </div>
+        <div class="description">
             <p>
-                Спойлер: размер файла значительно меньше, по сравнению с html2pdf. Результирующий PDF-файл Puppeteer
-                примерно в четыре раза меньше.
+                Преобразует любую веб-страницу или элемент в PDF-файл полностью на стороне клиента, используя
+                html2canvas и jsPDF.
+            </p>
+            <ul>
+                <li>
+                    Делает снимок экрана и создает из него PDF-файл, что означает, что текст будет выглядеть размытым
+                    при увеличении масштаба.
+                    Вы можете настроить html2pdf для использования PNG вместо JPEG, но это приведет к резкому увеличению
+                    размера PDF.
+                </li>
+                <li>
+                    Текст недоступен для выбора или поиска.
+                </li>
+                <li>
+                    HTML5 Canvas имеет максимальную высоту / ширину. Все, что больше, не будет отображаться.
+                    Это ограничение самого HTML5, и в результате большие PDF-файлы отображаются полностью пустыми в
+                    html2pdf.js. <br>
+
+                </li>
+                <div class="annotation">
+                    Maximum height/width: 32,767 pixels<br>
+                    Maximum area: 268,435,456 pixels (e.g., 16,384 x 16,384)
+                </div>
+            </ul>
+        </div>
+    </section>
+
+    <section class="slide lib-description">
+        <div class="title">
+            <a href="https://html2canvas.hertzen.com/documentation">Html2canvas</a>
+        </div>
+        <div class="description">
+            <p>
+                Позволяет делать скриншоты веб-страниц или их частей прямо в браузере пользователя. Снимок
+                экрана основан на модели DOM и может не быть на 100% точным для реального представления,
+                поскольку он не создает фактический снимок экрана, а создает снимок экрана на основе информации,
+                доступной на странице. <br />
+                Т.е. считывает DOM и рендерит(рисует) все это на канвасе средствами canvas.
             </p>
         </div>
     </section>
+
+    <section class="slide lib-description">
+        <div class="title">
+            jsPDF и PDFkit
+        </div>
+        <div class="description">
+            <p>
+                Autolayout-а в jsPDF и PDFkit нет — нужно самостоятельно расставлять элементы по координатам (как в
+                Canvas API), "руками" создавать страницы и т.д.
+            </p>
+
+            <div class="compare-code">
+                <div class="code">
+                    <p>jsPDF</p>
+                    <code>
+const doc = new jsPDF();
+
+doc.setFontSize(40);
+doc.text("Octonyan loves jsPDF", 35, 25);
+doc.addImage("examples/images/Octonyan.jpg", "JPEG", 15, 40, 100, 100);
+
+doc.createAnnotation({
+    type: "text",
+    title: "note",
+    bounds: {
+        x: 15,
+        y: 80,
+        w: 200,
+        h: 80
+    },
+    contents: "This is text annotation (closed by default)",
+    open: false
+});
+
+doc.textWithLink("Click me!", 15, 180, {
+    url: "https://parall.ax/",
+});
+                    </code>
+                </div>
+                <div class="code">
+                    <p>PDFkit</p>
+                    <code>
+const doc = new PDFDocument();
+
+doc.fontSize(25).text('Here is some vector graphic...', 100, 80);
+
+doc
+  .save()
+  .moveTo(100, 150)
+  .lineTo(100, 250)
+  .lineTo(200, 250)
+  .fill('#FF3300');
+
+doc.circle(280, 200, 50).fill('#6600FF');
+
+doc.restore();
+
+doc
+  .text('And here is some wrapped text...', 100, 300)
+  .font('Times-Roman', 13)
+  .moveDown()
+  .text(lorem, {
+    width: 412,
+    align: 'justify',
+    indent: 30,
+    columns: 2,
+    height: 300,
+    ellipsis: true
+  });
+                    </code>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="slide lib-description">
+        <div class="title">
+            Таблицы jsPDF и PDFkit
+        </div>
+        <div class="description">
+            <div>
+                <a href="https://github.com/simonbengtsson/jsPDF-AutoTable">jsPDF-AutoTable:</a>
+                <div <div class="img-wrapper-row">
+                    <img class="lib-icon" src="pictures/jspdf-table_1.png" />
+                    <img class="lib-icon" src="pictures/jspdf-table_2.png" />
+                </div>
+            </div>
+            <br>
+            <div>
+                <p>PDFkit:</p>
+                <img class="sticker6" src="pictures/sticker.png" />
+            </div>
+        </div>
+    </section>
+
 
     <section class="slide lib-description">
         <div class="title">
@@ -269,7 +458,7 @@ var dd = {
     <section class="slide downloads-slide">
         <embed style="border:none;" src="/pictures/pdf-example.pdf#toolbar=0" width="75%" height="85%"
             type="application/pdf">
-        <img class="sticker6" src="pictures/sticker6.png" />
+        <img class="sticker11" src="pictures/sticker6.png" />
     </section>
 
     <section class="slide lib-description">
@@ -304,59 +493,7 @@ var dd = {
         </div>
     </section>
 
-    <section class="slide lib-description">
-        <div class="title">
-            Html2pdf
-        </div>
-        <div class="description">
-            <p>
-                Преобразует любую веб-страницу или элемент в PDF-файл полностью на стороне клиента, используя
-                html2canvas и jsPDF.
-            </p>
-            <ul>
-                <li>
-                    Делает снимок экрана и создает из него PDF-файл, что означает, что текст будет выглядеть размытым
-                    при увеличении масштаба.
-                    Вы можете настроить html2pdf для использования PNG вместо JPEG, но это приведет к резкому увеличению
-                    размера PDF.
-                </li>
-                <li>
-                    Текст недоступен для выбора или поиска.
-                </li>
-                <li>
-                    HTML5 Canvas имеет максимальную высоту / ширину. Все, что больше, не будет отображаться.
-                    Это ограничение самого HTML5, и в результате большие PDF-файлы отображаются полностью пустыми в
-                    html2pdf.js. <br>
 
-                </li>
-                <div class="annotation">
-                    Maximum height/width: 32,767 pixels<br>
-                    Maximum area: 268,435,456 pixels (e.g., 16,384 x 16,384)
-                </div>
-            </ul>
-        </div>
-    </section>
-
-    <section class="slide lib-description">
-        <div class="title">
-            jsPDF и PDFkit
-        </div>
-        <div class="description">
-            <p>
-                Autolayout-а в jsPDF и PDFkit нет — нужно самостоятельно расставлять элементы по координатам (как в
-                Canvas API), "руками" создавать страницы и т.д.
-            </p>
-
-            <div>
-                <a href="https://github.com/simonbengtsson/jsPDF-AutoTable">jsPDF-AutoTable</a>
-                <div <div class="img-wrapper-row">
-                    <img class="lib-icon" src="pictures/jspdf-table_1.png" />
-                    <img class="lib-icon" src="pictures/jspdf-table_2.png" />
-                </div>
-
-            </div>
-        </div>
-    </section>
 
     <div class="progress"></div>
 
